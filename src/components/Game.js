@@ -18,7 +18,7 @@ class Game extends Component {
   }
 
   componentDidMount(){
-    if(!this.props.activeGame){
+    if(this.props.activeGame){
       this.setState({ code : this.createCode(this.props.colors)});
     }
   }
@@ -41,7 +41,6 @@ class Game extends Component {
     else {
       code = code.filter(x => x);
       guessCopy = guessCopy.filter(x => x);
-      console.log(code);
       for(let i = 0; i < guessCopy.length; i++){
         let colorCodeIndex = code.indexOf(guessCopy[i]);
         if(colorCodeIndex !== -1){
@@ -69,13 +68,21 @@ class Game extends Component {
     const { colors, codeLength } = this.props;
     return (
       <>
-        Hello
-      <Guessbox 
-        colors={ colors }
-        guessLimit={ codeLength }
-        checkGuess= { this.checkGuess }
-        sendGuess= { this.receiveGuess }
-      />
+      { this.state.guesses.map(guess => {
+          return (
+            <div>
+              { guess.colorsGuessed.map(color => <div>{color}</div>) }
+              <p> Correct: {guess.correct.black} </p>
+              <p> Correct but wrong place: {guess.correct.white} </p>
+            </div>
+          )
+        })}
+        <Guessbox 
+          colors={ colors }
+          guessLimit={ codeLength }
+          checkGuess= { this.checkGuess }
+          sendGuess= { this.receiveGuess }
+        />
       </>
     );
   }

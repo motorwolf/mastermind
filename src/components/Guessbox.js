@@ -18,9 +18,11 @@ class Guessbox extends Component {
         colorsGuessed: newColors,
         correct,
       });
-      this.setState({colors: null});
+      this.setState({colors: []});
     }
-    this.setState({colors: newColors});
+    else {
+      this.setState({colors: newColors});
+    }
   }
 
   render(){
