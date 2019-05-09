@@ -26,7 +26,7 @@ class Guessbox extends Component {
   }
 
   render(){
-    const { colors, guessLimit } = this.props;
+    const { colors } = this.props;
 
     return (
       <div>
@@ -39,7 +39,8 @@ class Guessbox extends Component {
         GUESSBUTTONS:
         { colors.map(color => {
           return <ColorButton 
-            color={ color } 
+            color={ color }
+            key={ color }
             addColor={ this.handleColorAdd } />
           })
         }

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import Guessbox from './Guessbox';
+import ColorBlock from './ColorBlock';
 
 class Game extends Component {
   
   state = {
     guesses: [],
-    code: ['red','yellow','orange','red'],
+    code: [],
   }
 
   
@@ -71,7 +72,7 @@ class Game extends Component {
       { this.state.guesses.map(guess => {
           return (
             <div>
-              { guess.colorsGuessed.map(color => <div>{color}</div>) }
+            { guess.colorsGuessed.map(color => <ColorBlock color={color}/>) }
               <p> Correct: {guess.correct.black} </p>
               <p> Correct but wrong place: {guess.correct.white} </p>
             </div>
