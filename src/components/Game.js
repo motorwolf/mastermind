@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Guessbox from './Guessbox';
 import ColorBlock from './ColorBlock';
+import ResultBlock from './ResultBlock';
 
 class Game extends Component {
   
@@ -15,6 +16,7 @@ class Game extends Component {
     while(code.length < this.props.codeLength){
       code.push(colors[Math.floor(Math.random() * ( colors.length - 1 ))]);
     }
+    console.log(code);
     return code;
   }
 
@@ -71,8 +73,11 @@ class Game extends Component {
       <>
       { this.state.guesses.map(guess => {
           return (
-            <div>
+            <div className="resultholder">
             { guess.colorsGuessed.map(color => <ColorBlock color={color}/>) }
+              
+            
+            <ResultBlock black={guess.correct.black} white={guess.correct.white} />
               <p> Correct: {guess.correct.black} </p>
               <p> Correct but wrong place: {guess.correct.white} </p>
             </div>

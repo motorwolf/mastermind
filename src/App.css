@@ -35,8 +35,19 @@
 .colorblock {
   height: 100px;
   width: 100px;
+  border: 5px solid white;
 }
 
+.resultblock {
+  height: 50%;
+  width: 50%;
+  border-radius: 50px;
+}
+
+.resultholder {
+  display: flex;
+  flex-direction: row;
+}
 .red {
   background-color: red;
 }
@@ -57,3 +68,9 @@
   background-color: purple;
 }
 
+.black {
+  background-color: black;
+}
+.white {
+  background-color: gray;
+}
