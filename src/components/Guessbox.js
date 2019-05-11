@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ColorButton from './ColorButton';
+import ColorBlock from './ColorBlock';
+
 
 class Guessbox extends Component {
 
@@ -30,12 +32,16 @@ class Guessbox extends Component {
 
     return (
       <div>
+        <div className="resultholder">
         CURRENT GUESS:
         { this.state.colors.map(color =>
           {
-            return (<div> {color} </div>);
+            return (
+                <ColorBlock color={color} />
+              );
           })
         }
+        </div>
         GUESSBUTTONS:
         { colors.map(color => {
           return <ColorButton 
@@ -44,7 +50,6 @@ class Guessbox extends Component {
             addColor={ this.handleColorAdd } />
           })
         }
-        Guessbox
       </div>
     );
   }
