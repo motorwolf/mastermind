@@ -47,6 +47,7 @@
 .resultholder {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 .red {
   background-color: red;

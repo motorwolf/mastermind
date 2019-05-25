@@ -4,10 +4,9 @@ class ResultBlock extends Component {
 
     blackArray = new Array(this.props.black);
     whiteArray = new Array(this.props.white);
-  outputGuessResults = (num, color) => {
-    console.log(`this ran! ${num}`);
+
+    outputGuessResults = (num, color) => {
     let resultBlocks = [];
-    //debugger;
     if(num > 0){
       resultBlocks.push(<div className={`resultblock ${color}`}></div>);      
       resultBlocks = resultBlocks.concat(this.outputGuessResults(num - 1, color));
@@ -15,7 +14,8 @@ class ResultBlock extends Component {
     }
     return [];
     }
-  render(){
+
+    render(){
     //let thing = this.outputGuessResults(this.props.black,'black');
     //console.log(thing);
       return (

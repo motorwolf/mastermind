@@ -1,9 +1,6 @@
 import React from 'react';
 
-const ColorButton = (props) => {
-
-  const { color, addColor } = props;
-  return (
+const ColorButton = ({ color, addColor }) => (
     <button 
       style = {{ backgroundColor: color }}
       onClick={() => addColor(color)}
@@ -11,6 +8,5 @@ const ColorButton = (props) => {
         { color }
     </button>
   );
-}
 
 export default ColorButton;

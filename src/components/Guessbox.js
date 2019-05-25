@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ColorButton from './ColorButton';
 import ColorBlock from './ColorBlock';
-
+import GuessBlock from './GuessBlock';
 
 class Guessbox extends Component {
 
@@ -27,6 +27,12 @@ class Guessbox extends Component {
     }
   }
 
+  removeColor = (index) => {
+    let newColors = [...this.state.colors];
+    newColors.splice(index, 1);
+    this.setState({colors: newColors});
+  }
+
   render(){
     const { colors } = this.props;
 
@@ -34,10 +40,10 @@ class Guessbox extends Component {
       <div>
         <div className="resultholder">
         CURRENT GUESS:
-        { this.state.colors.map(color =>
+        { this.state.colors.map((color,index) =>
           {
             return (
-                <ColorBlock color={color} />
+              <ColorBlock color={color} key={color + index} id={color + index} removable removeColor={() => this.removeColor(index)}/>
               );
           })
         }
