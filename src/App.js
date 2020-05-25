@@ -1,28 +1,35 @@
 import React, { Component } from 'react';
 import Game from './components/Game';
-import logo from './logo.svg';
 import './App.css';
 
+const COLORS = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
+
 class App extends Component {
-  
-  state = {
-    colorNum: 6,
-    codeLength: 4,
-    activeGame: true,
-  }
+    state = {
+        colorNum: 6,
+        codeLength: 4,
+        activeGame: true,
+    };
 
+    createCode = (colors) => {
+        let code = [];
+        while (code.length < this.state.codeLength) {
+            code.push(colors[Math.floor(Math.random() * (colors.length - 1))]);
+        }
+        console.log(code);
+        return code;
+    };
 
-  COLORS = ['red','orange','yellow','green','blue','purple'];
-  
-  render() {
-    return (
-      <Game 
-        colors={ this.COLORS.splice(0,this.state.colorNum) }
-        codeLength = { this.state.codeLength }
-        activeGame = { this.state.activeGame }
-      />
-    );
-  }
+    render() {
+        const gameColors = COLORS.splice(0, this.state.colorNum);
+        return (
+            <Game
+                colors={gameColors}
+                codeLength={this.state.codeLength}
+                secretCode={this.createCode(gameColors)}
+            />
+        );
+    }
 }
 
 export default App;
