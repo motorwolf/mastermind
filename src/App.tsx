@@ -1,18 +1,29 @@
 import React, { Component } from 'react';
-import Game from './components/Game';
+import Game, { ColorTypes } from './components/Game';
 import './App.css';
 
-const COLORS = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
+const COLORS: ColorTypes[] = [
+    'red',
+    'orange',
+    'yellow',
+    'green',
+    'blue',
+    'purple',
+];
 
-class App extends Component {
+export interface AppProps {
+    colors: ColorTypes[];
+}
+
+class App extends Component<AppProps> {
     state = {
         colorNum: 6,
         codeLength: 4,
         activeGame: true,
     };
 
-    createCode = (colors) => {
-        let code = [];
+    createCode = (colors: ColorTypes[]): ColorTypes[] => {
+        const code: ColorTypes[] = [];
         while (code.length < this.state.codeLength) {
             code.push(colors[Math.floor(Math.random() * (colors.length - 1))]);
         }

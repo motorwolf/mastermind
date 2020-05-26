@@ -2,14 +2,41 @@ import React, { Component } from 'react';
 import Guessbox from './Guessbox';
 import PreviousGuesses from './PreviousGuesses';
 
-class Game extends Component {
+export type ColorTypes =
+    | 'red'
+    | 'orange'
+    | 'yellow'
+    | 'green'
+    | 'blue'
+    | 'purple';
+
+export type CheckedType = ColorTypes | null;
+
+export interface GuessShape {
+    colorsGuessed: ColorTypes[];
+    correct: GuessCorrectShape;
+}
+
+export interface GuessCorrectShape {
+    black: number;
+    white: number;
+    empty: number;
+}
+
+export interface GameProps {
+    secretCode: ColorTypes[];
+    codeLength: number;
+    colors: ColorTypes[];
+}
+
+class Game extends Component<GameProps> {
     state = {
         guesses: [],
     };
 
-    checkGuess = (guess) => {
-        let code = [...this.props.secretCode];
-        let guessCopy = [...guess];
+    checkGuess = (guess: ColorTypes[]) => {
+        let code: CheckedType[] = [...this.props.secretCode];
+        let guessCopy: CheckedType[] = [...guess];
         let black = 0;
         let white = 0;
         for (let i = 0; i < code.length; i++) {
@@ -41,7 +68,7 @@ class Game extends Component {
         };
     };
 
-    receiveGuess = (guess) => {
+    receiveGuess = (guess: GuessShape) => {
         const guesses = [...this.state.guesses, guess];
         this.setState({ guesses });
     };

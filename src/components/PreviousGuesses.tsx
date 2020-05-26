@@ -1,12 +1,17 @@
 import React from 'react';
 import { ColorRow } from './ColorRow';
 import ResultDisplay from './Results';
+import { GuessShape } from './Game';
 
-export const PreviousGuesses = ({ guesses }) => (
+export interface PreviousGuessesPropTypes {
+    guesses: GuessShape[]
+}
+
+export const PreviousGuesses = ({ guesses }: PreviousGuessesPropTypes) => (
     <div className="resultholder">
         {guesses.map((guess) => (
             <>
-                <ColorRow colors={guess.colorsGuessed} colorClickFn={null}/>
+                <ColorRow colors={guess.colorsGuessed} />
                 <ResultDisplay
                     black={guess.correct.black}
                     white={guess.correct.white}
