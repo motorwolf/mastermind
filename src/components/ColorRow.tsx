@@ -8,7 +8,7 @@ export interface ColorRowPropTypes {
 }
 
 export const ColorRow = ({ colors, colorClickFn }: ColorRowPropTypes) => {
-    return <>
+    return <div className="colorRow">
     {colors.map((color, index) => (
         
             <ColorBlock
@@ -19,5 +19,5 @@ export const ColorRow = ({ colors, colorClickFn }: ColorRowPropTypes) => {
             />
         
     ))}
-    </>
+    </div>
 };

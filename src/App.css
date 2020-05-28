@@ -1,77 +1,87 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+    animation: App-logo-spin infinite 20s linear;
+    height: 40vmin;
+    pointer-events: none;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .colorblock {
-  height: 100px;
-  width: 100px;
-  border: 5px solid white;
+    height: 100px;
+    width: 100px;
+    border: 5px solid white;
 }
 
 .resultblock {
-  height: 50%;
-  width: 50%;
-  border-radius: 50px;
+    height: 50%;
+    width: 50%;
+    border-radius: 50px;
 }
 
 .resultholder {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
 }
+.colorRow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.guessRows {
+    display: flex;
+    flex-direction: row;
+}
+
 .red {
-  background-color: red;
+    background-color: red;
 }
 
 .orange {
-  background-color: orange;
+    background-color: orange;
 }
 .yellow {
-  background-color: yellow;
+    background-color: yellow;
 }
 .green {
-  background-color: green;
+    background-color: green;
 }
 .blue {
-  background-color: blue;
+    background-color: blue;
 }
 .purple {
-  background-color: purple;
+    background-color: purple;
 }
 
 .black {
-  background-color: black;
+    background-color: black;
 }
 .white {
-  background-color: gray;
+    background-color: gray;
 }

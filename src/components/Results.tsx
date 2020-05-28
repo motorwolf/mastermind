@@ -10,7 +10,7 @@ const outputResultBubbles = (num: number, color: 'black' | 'white') =>
 
 
 export const ResultDisplay = ({ black, white }: ResultDisplayProps) => (
-    <div className="resultholder colorblock">
+    <div className="colorRow colorblock">
         {outputResultBubbles(black, 'black')}
         {outputResultBubbles(white, 'white')}
     </div>
