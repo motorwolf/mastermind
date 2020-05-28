@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Guessbox from './Guessbox';
+import { Provider } from './Context';
 import PreviousGuesses from './PreviousGuesses';
 
 export type ColorTypes =
@@ -76,7 +77,7 @@ class Game extends Component<GameProps> {
     render() {
         const { colors, codeLength } = this.props;
         return (
-            <>
+            <Provider value={{receiveGuess: this.receiveGuess, checkGuess: this.checkGuess, colors, guessLimit: codeLength,}}>
                 <PreviousGuesses guesses={this.state.guesses} />
                 <Guessbox
                     colors={colors}
@@ -84,7 +85,7 @@ class Game extends Component<GameProps> {
                     checkGuess={this.checkGuess}
                     sendGuess={this.receiveGuess}
                 />
-            </>
+            </Provider>
         );
     }
 }

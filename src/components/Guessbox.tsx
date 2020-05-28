@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ColorRow } from './ColorRow';
 import GuessButtons from './GuessButtons';
 import { ColorTypes, GuessShape, GuessCorrectShape } from './Game';
+import { Consumer } from './Context';
 
 export interface GuessboxPropTypes {
     colors: ColorTypes[];
@@ -37,17 +38,21 @@ class Guessbox extends Component<GuessboxPropTypes> {
 
     render() {
         return (
-            <div className="resultholder">
-                CURRENT GUESS:
-                    <ColorRow
-                        colors={this.state.colors}
-                        colorClickFn={this.removeColor}
-                    />
-                <GuessButtons
-                    colors={this.props.colors}
-                    buttonFunction={this.handleColorAdd}
-                />
-            </div>
+            <Consumer>
+                {(context: GuessboxPropTypes) => (
+                    <div className="resultholder">
+                        CURRENT GUESS:
+                        <ColorRow
+                            colors={this.state.colors}
+                            colorClickFn={this.removeColor}
+                        />
+                        <GuessButtons
+                            colors={context.colors}
+                            buttonFunction={this.handleColorAdd}
+                        />
+                    </div>
+                )}
+            </Consumer>
         );
     }
 }

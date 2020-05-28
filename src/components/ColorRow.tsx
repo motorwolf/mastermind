@@ -8,16 +8,16 @@ export interface ColorRowPropTypes {
 }
 
 export const ColorRow = ({ colors, colorClickFn }: ColorRowPropTypes) => {
-    return <div className="colorRow">
-    {colors.map((color, index) => (
-        
-            <ColorBlock
-                color={color}
-                id={index}
-                onClick={colorClickFn}
-                key={color}
-            />
-        
-    ))}
-    </div>
+    return (
+        <div className="colorRow">
+            {colors.map((color, index) => (
+                <ColorBlock
+                    color={color}
+                    id={index}
+                    onClick={colorClickFn}
+                    key={color + index}
+                />
+            ))}
+        </div>
+    );
 };
