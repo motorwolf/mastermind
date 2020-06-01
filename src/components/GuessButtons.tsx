@@ -9,7 +9,6 @@ export interface GuessButtonsPropTypes {
 
 export const GuessButtons = ({ colors, buttonFunction } : GuessButtonsPropTypes) => (
     <div>
-        GUESSBUTTONS:
         {colors.map((color) => (
             <button
                 style={{
