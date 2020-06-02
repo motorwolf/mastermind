@@ -13,15 +13,15 @@ class Game extends Component {
     render() {
         const { codeLength } = this.props;
         return (
-            <Provider value={{receiveGuess: this.receiveGuess, checkGuess: this.checkGuess, colors, guessLimit: codeLength,}}>
-                <PreviousGuesses guesses={this.state.guesses} />
+        <>
+            <PreviousGuesses guesses={this.state.guesses} />
                 <Guessbox
                     colors={colors}
                     guessLimit={codeLength}
                     checkGuess={this.checkGuess}
                     sendGuess={this.receiveGuess}
                 />
-            </Provider>
+        </>
         );
     }
 }

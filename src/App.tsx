@@ -13,7 +13,6 @@ class App extends Component {
 
 
     render() {
-        const newGame = new MastermindGame(4)
         return (
             <Game
                 codeLength={newGame.codeLength}
