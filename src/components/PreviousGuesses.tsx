@@ -9,12 +9,12 @@ export interface PreviousGuessesPropTypes {
 
 export const PreviousGuesses = ({ guesses }: PreviousGuessesPropTypes) => (
     <div className="resultholder">
-        {guesses.map((guess) => (
+        {guesses.map(({guess, black, white}) => (
             <div className="guessRows">
-                <ColorRow colors={guess.colorsGuessed} />
+                <ColorRow colors={guess} />
                 <ResultDisplay
-                    black={guess.correct.black}
-                    white={guess.correct.white}
+                    black={black}
+                    white={white}
                 />
             </div>
         ))}

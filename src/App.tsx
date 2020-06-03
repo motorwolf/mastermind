@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, ChangeEvent } from 'react';
 import Game, { ColorTypes } from './components/Game';
 import './App.css';
+import { GameOptions } from './components/GameOptions';
 
-const COLORS: ColorTypes[] = [
+export const COLORS: ColorTypes[] = [
     'red',
     'orange',
     'yellow',
@@ -19,7 +20,25 @@ class App extends Component<AppProps> {
     state = {
         colorNum: 6,
         codeLength: 4,
-        activeGame: true,
+        won: false,
+        activeGame: false,
+        secretCode: [],
+        gameColors: [],
+    };
+
+    handleSelectionChange = (ev: ChangeEvent<HTMLSelectElement>) => {
+        this.setState({
+            [ev.target.name]: ev.target.value,
+        });
+    };
+
+    startGame = () => {
+        const gameColors = COLORS.splice(0, this.state.colorNum);
+        this.setState({
+            gameColors,
+            secretCode: this.createCode(gameColors),
+            activeGame: true,
+        });
     };
 
     createCode = (colors: ColorTypes[]): ColorTypes[] => {
@@ -32,12 +51,18 @@ class App extends Component<AppProps> {
     };
 
     render() {
-        const gameColors = COLORS.splice(0, this.state.colorNum);
-        return (
+        return this.state.activeGame ? (
             <Game
-                colors={gameColors}
+                colors={this.state.gameColors}
                 codeLength={this.state.codeLength}
-                secretCode={this.createCode(gameColors)}
+                secretCode={this.state.secretCode}
+            />
+        ) : (
+            <GameOptions
+                onInputChange={this.handleSelectionChange}
+                onFormSubmit={this.startGame}
+                codeLength={this.state.codeLength}
+                colorNum={this.state.colorNum}
             />
         );
     }
