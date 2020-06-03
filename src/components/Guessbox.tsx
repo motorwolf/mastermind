@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { ColorRow } from './ColorRow';
 import GuessButtons from './GuessButtons';
-import { ColorTypes, GuessShape, GuessCorrectShape } from './Game';
-import { Consumer } from './Context';
+import { checkGuess } from './GameLogic';
+import { GuessCorrectShape, COLORS, ColorTypes } from './GameTypes';
 
 export interface GuessboxPropTypes {
-    colors: ColorTypes[];
     guessLimit: number;
-    checkGuess: (colors: ColorTypes[]) => GuessCorrectShape;
-    sendGuess: (guess: GuessShape) => void;
+    code: ColorTypes[];
+    sendGuess: () => void;
 }
 
 class Guessbox extends Component<GuessboxPropTypes> {
@@ -19,11 +18,7 @@ class Guessbox extends Component<GuessboxPropTypes> {
     handleColorAdd = (color: ColorTypes) => {
         let newColors = [...this.state.colors, color];
         if (newColors.length === this.props.guessLimit) {
-            let correct = this.props.checkGuess(newColors);
-            this.props.sendGuess({
-                colorsGuessed: newColors,
-                correct,
-            });
+            this.props.sendGuess(checkGuess(newColors, this.props.code));
             this.setState({ colors: [] });
         } else {
             this.setState({ colors: newColors });
@@ -38,21 +33,17 @@ class Guessbox extends Component<GuessboxPropTypes> {
 
     render() {
         return (
-            <Consumer>
-                {(context: GuessboxPropTypes) => (
-                    <div className="resultholder">
-                        CURRENT GUESS:
-                        <ColorRow
-                            colors={this.state.colors}
-                            colorClickFn={this.removeColor}
-                        />
-                        <GuessButtons
-                            colors={context.colors}
-                            buttonFunction={this.handleColorAdd}
-                        />
-                    </div>
-                )}
-            </Consumer>
+            <div className="resultholder">
+                CURRENT GUESS:
+                <ColorRow
+                    colors={this.state.colors}
+                    colorClickFn={this.removeColor}
+                />
+                <GuessButtons
+                    colors={COLORS}
+                    buttonFunction={this.handleColorAdd}
+                />
+            </div>
         );
     }
 }

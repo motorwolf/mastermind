@@ -1,29 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import Guessbox from './Guessbox';
-import { Provider } from './Context';
 import PreviousGuesses from './PreviousGuesses';
 
-
-class Game extends Component {
-    state = {
-        guesses: [],
-    };
-
-
-    render() {
-        const { codeLength } = this.props;
-        return (
+export const Game = ({ codeLength, secretCode }) => {
+    const [guesses, addGuess] = useState([]);
+    return (
         <>
-            <PreviousGuesses guesses={this.state.guesses} />
-                <Guessbox
-                    colors={colors}
-                    guessLimit={codeLength}
-                    checkGuess={this.checkGuess}
-                    sendGuess={this.receiveGuess}
-                />
+            <PreviousGuesses guesses={guesses} />
+            <Guessbox
+                guessLimit={codeLength}
+                sendGuess={addGuess}
+                code={secretCode}
+            />
         </>
-        );
-    }
-}
+    );
+};
 
 export default Game;

@@ -12,17 +12,15 @@ export interface GuessCorrectShape {
     colors: ColorTypes[];
     black: number;
     white: number;
-    empty: number;
 }
 
 export interface MastermindGamedataShape {
-    createCode: (length: number, allColors: ColorTypes[]) => ColorTypes[]
+    createCode: (length: number, allColors: ColorTypes[]) => ColorTypes[];
 }
 
-export interface GameProps {
-    secretCode: ColorTypes[]
-    codeLength: number
-    colors: ColorTypes[]
+export interface GamePropTypes {
+    secretCode: ColorTypes[];
+    codeLength: number;
 }
 
 export const COLORS: ColorTypes[] = [
