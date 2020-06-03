@@ -28,7 +28,7 @@ class App extends Component<AppProps> {
 
     handleSelectionChange = (ev: ChangeEvent<HTMLSelectElement>) => {
         this.setState({
-            [ev.target.name]: ev.target.value,
+            [ev.target.name]: parseInt(ev.target.value),
         });
     };
 
