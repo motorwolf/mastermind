@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from 'react';
 import { Dropdown } from './Dropdown';
 import { GameOptionStyles } from './GameOptionsStyles';
-import { theme } from '../Theme'
+import { theme } from '../Theme';
 
 export interface GameOptionsPropTypes {
     onInputChange: (ev: ChangeEvent<HTMLSelectElement>) => void;
@@ -24,6 +24,7 @@ export const GameOptions = ({
     return (
         <div className={classes.dialog}>
             <form
+                className={classes.form}
                 onSubmit={(ev) => {
                     ev.preventDefault();
                     onFormSubmit();

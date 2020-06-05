@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { ColorRow } from './ColorRow';
 import GuessButtons from './GuessButtons';
 import { ColorTypes, GuessShape } from './Game';
-import { COLORS } from '../App';
+import { GuessBoxStyles } from './GuessBoxStyles';
+import { theme } from '../Theme';
 
 export interface GuessboxPropTypes {
     colors: ColorTypes[];
@@ -11,7 +12,12 @@ export interface GuessboxPropTypes {
     sendGuess: (guess: GuessShape) => void;
 }
 
-class Guessbox extends Component<GuessboxPropTypes> {
+export const StyledGuessBox = ({ children }: any) => {
+    const classes = GuessBoxStyles({ theme });
+    return <div className={classes.guessBoxContainer}>{children}</div>;
+};
+
+export class GuessBox extends Component<GuessboxPropTypes> {
     state = {
         colors: [],
     };
@@ -34,7 +40,7 @@ class Guessbox extends Component<GuessboxPropTypes> {
 
     render() {
         return (
-            <div className="resultholder">
+            <StyledGuessBox>
                 CURRENT GUESS:
                 <ColorRow
                     colors={this.state.colors}
@@ -44,9 +50,7 @@ class Guessbox extends Component<GuessboxPropTypes> {
                     colors={this.props.colors}
                     buttonFunction={this.handleColorAdd}
                 />
-            </div>
+            </StyledGuessBox>
         );
     }
 }
-
-export default Guessbox;

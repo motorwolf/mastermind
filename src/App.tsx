@@ -1,5 +1,5 @@
 import React, { Component, ChangeEvent } from 'react';
-import Game, { ColorTypes } from './components/Game';
+import { ColorTypes, Game } from './components/Game';
 import './App.css';
 import { GameOptions } from './components/GameOptions';
 import { AppStyles } from './AppStyles';
@@ -22,8 +22,10 @@ export const StyledApp = ({ children }: any) => {
     const classes = AppStyles({ theme });
     return (
         <div className={classes.backdrop}>
-            <h1 className={classes.heading}>Mastermind.</h1>
-            {children}
+            <header>
+                <h1 className={classes.heading}>Mastermind.</h1>
+            </header>
+            <main>{children}</main>
         </div>
     );
 };

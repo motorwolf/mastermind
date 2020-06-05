@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import Guessbox from './Guessbox';
+import { GuessBox } from './GuessBox';
 import PreviousGuesses from './PreviousGuesses';
+import { GameStyles } from './GameStyles';
+import { theme } from '../Theme';
 
 export type ColorTypes =
     | 'red'
@@ -24,7 +26,12 @@ export interface GameProps {
     colors: ColorTypes[];
 }
 
-class Game extends Component<GameProps> {
+export const StyledGame = ({ children }: any) => {
+    const classes = GameStyles({ theme });
+    return <div className={classes.gameContainer}>{children}</div>;
+};
+
+export class Game extends Component<GameProps> {
     state = {
         guesses: [],
     };
@@ -71,17 +78,15 @@ class Game extends Component<GameProps> {
     render() {
         const { colors, codeLength } = this.props;
         return (
-            <>
+            <StyledGame>
                 <PreviousGuesses guesses={this.state.guesses} />
-                <Guessbox
+                <GuessBox
                     colors={colors}
                     guessLimit={codeLength}
                     checkGuess={this.checkGuess}
                     sendGuess={this.receiveGuess}
                 />
-            </>
+            </StyledGame>
         );
     }
 }
-
-export default Game;
