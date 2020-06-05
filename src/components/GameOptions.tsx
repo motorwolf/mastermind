@@ -1,4 +1,5 @@
 import React, { ChangeEvent } from 'react';
+import { Dropdown} from './Dropdown';
 
 export interface GameOptionsPropTypes {
     onInputChange: (ev: ChangeEvent<HTMLSelectElement>) => void;
@@ -6,6 +7,10 @@ export interface GameOptionsPropTypes {
     colorNum: number;
     codeLength: number;
 }
+
+export const SelectValues = [4, 5, 6].map((value) => ({
+    value,
+}));
 
 export const GameOptions = ({
     onInputChange,
@@ -20,18 +25,12 @@ export const GameOptions = ({
                 onFormSubmit();
             }}
         >
-            <label>
-                Select your number of colors:
-                <select
-                    value={colorNum}
-                    name="colorNum"
-                    onChange={(ev) => onInputChange(ev)}
-                >
-                    <option value={4}>4</option>
-                    <option value={5}>5</option>
-                    <option value={6}>6</option>
-                </select>
-            </label>
+            <Dropdown
+                options={SelectValues}
+                name="colorNum"
+                labelText="Select the number of colors available:"
+                onChangeFn={onInputChange}
+            />
             <label>
                 Select your code length :
                 <select

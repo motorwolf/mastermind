@@ -2,6 +2,8 @@ import React, { Component, ChangeEvent } from 'react';
 import Game, { ColorTypes } from './components/Game';
 import './App.css';
 import { GameOptions } from './components/GameOptions';
+import { AppStyles } from './AppStyles';
+import { theme } from './index';
 
 export const COLORS: ColorTypes[] = [
     'red',
@@ -15,6 +17,11 @@ export const COLORS: ColorTypes[] = [
 export interface AppProps {
     colors: ColorTypes[];
 }
+
+export const StyledApp = ({ children }: any) => {
+    const classes = AppStyles({ theme });
+    return <div className={classes.backdrop}>{children}</div>;
+};
 
 class App extends Component<AppProps> {
     state = {
@@ -46,24 +53,27 @@ class App extends Component<AppProps> {
         while (code.length < this.state.codeLength) {
             code.push(colors[Math.floor(Math.random() * (colors.length - 1))]);
         }
-        console.log(code);
         return code;
     };
 
     render() {
-        return this.state.activeGame ? (
-            <Game
-                colors={this.state.gameColors}
-                codeLength={this.state.codeLength}
-                secretCode={this.state.secretCode}
-            />
-        ) : (
-            <GameOptions
-                onInputChange={this.handleSelectionChange}
-                onFormSubmit={this.startGame}
-                codeLength={this.state.codeLength}
-                colorNum={this.state.colorNum}
-            />
+        return (
+            <StyledApp>
+                {this.state.activeGame ? (
+                    <Game
+                        colors={this.state.gameColors}
+                        codeLength={this.state.codeLength}
+                        secretCode={this.state.secretCode}
+                    />
+                ) : (
+                    <GameOptions
+                        onInputChange={this.handleSelectionChange}
+                        onFormSubmit={this.startGame}
+                        codeLength={this.state.codeLength}
+                        colorNum={this.state.colorNum}
+                    />
+                )}
+            </StyledApp>
         );
     }
 }
