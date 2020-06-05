@@ -4,17 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { ThemeProvider } from 'react-jss';
-
-export const theme = {
-    red: 'red',
-    orange: 'orange',
-    yellow: 'yellow',
-    green: 'green',
-    blue: 'blue',
-    purple: 'purple',
-    font: '"Roboto"',
-    fontSize: '2em',
-};
+import { theme } from './Theme';
 
 ReactDOM.render(
     <ThemeProvider theme={theme}>

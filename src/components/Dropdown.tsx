@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from 'react';
 import { DropdownStyles } from './DropdownStyles';
-import { theme } from '../index';
+import { theme } from '../Theme';
 
 export interface OptionShape {
     display?: string;
@@ -27,7 +27,6 @@ export const Dropdown = ({
             <select name={name} onChange={(ev) => onChangeFn(ev)}>
                 {options.map((option) => (
                     <option value={option.value}>
-                        {' '}
                         {option.display || option.value}
                     </option>
                 ))}

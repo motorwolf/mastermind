@@ -3,7 +3,7 @@ import Game, { ColorTypes } from './components/Game';
 import './App.css';
 import { GameOptions } from './components/GameOptions';
 import { AppStyles } from './AppStyles';
-import { theme } from './index';
+import { theme } from './Theme';
 
 export const COLORS: ColorTypes[] = [
     'red',
@@ -20,7 +20,12 @@ export interface AppProps {
 
 export const StyledApp = ({ children }: any) => {
     const classes = AppStyles({ theme });
-    return <div className={classes.backdrop}>{children}</div>;
+    return (
+        <div className={classes.backdrop}>
+            <h1 className={classes.heading}>Mastermind.</h1>
+            {children}
+        </div>
+    );
 };
 
 class App extends Component<AppProps> {
