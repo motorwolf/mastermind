@@ -12,9 +12,16 @@ export const AppStyles = createUseStyles((theme: any) => ({
         boxSizing: 'border-box',
     },
     heading: {
-        fontSize: '15vw',
+        fontSize: '10vh',
         margin: 0,
         overflow: 'hidden',
         padding: `0 0 2rem`,
+    },
+    header: {
+        maxHeight: '15vh',
+    },
+    main: {
+        display: 'flex',
+        flexDirection: 'column',
     },
 }));

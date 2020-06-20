@@ -12,9 +12,14 @@ export interface GuessboxPropTypes {
     sendGuess: (guess: GuessShape) => void;
 }
 
-export const StyledGuessBox = ({ children }: any) => {
+export const StyledGuessBox = ({ top, bottom }: any) => {
     const classes = GuessBoxStyles({ theme });
-    return <div className={classes.guessBoxContainer}>{children}</div>;
+    return (
+        <div className={classes.guessBoxContainer}>
+            <div className={classes.currentGuess}>CURRENT GUESS: {top}</div>
+            <div className={classes.buttonHolder}>{bottom}</div>
+        </div>
+    );
 };
 
 export class GuessBox extends Component<GuessboxPropTypes> {
@@ -40,17 +45,20 @@ export class GuessBox extends Component<GuessboxPropTypes> {
 
     render() {
         return (
-            <StyledGuessBox>
-                CURRENT GUESS:
-                <ColorRow
-                    colors={this.state.colors}
-                    colorClickFn={this.removeColor}
-                />
-                <GuessButtons
-                    colors={this.props.colors}
-                    buttonFunction={this.handleColorAdd}
-                />
-            </StyledGuessBox>
+            <StyledGuessBox
+                top={
+                    <ColorRow
+                        colors={this.state.colors}
+                        colorClickFn={this.removeColor}
+                    />
+                }
+                bottom={
+                    <GuessButtons
+                        colors={this.props.colors}
+                        buttonFunction={this.handleColorAdd}
+                    />
+                }
+            />
         );
     }
 }

@@ -33,8 +33,9 @@
 }
 
 .colorblock {
-    height: 100px;
-    width: 100px;
+    max-height: 100px;
+    max-width: 100px;
+    flex: 1;
     border: 5px solid white;
 }
 
@@ -48,12 +49,6 @@
     display: flex;
     flex-direction: column;
 }
-.colorRow {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
 .guessRows {
     display: flex;
     flex-direction: row;
@@ -64,7 +59,7 @@
 }
 
 .orange {
-    background-color: 'orange';
+    background-color: orange;
 }
 .yellow {
     background-color: yellow;

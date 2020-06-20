@@ -1,6 +1,8 @@
 import React from 'react';
 import { ColorBlock } from './ColorBlock';
 import { ColorTypes } from './Game';
+import { theme } from '../Theme';
+import { ColorRowStyles } from './ColorRowStyles';
 
 export interface ColorRowPropTypes {
     colors: ColorTypes[];
@@ -8,8 +10,9 @@ export interface ColorRowPropTypes {
 }
 
 export const ColorRow = ({ colors, colorClickFn }: ColorRowPropTypes) => {
+    const classes = ColorRowStyles({ theme })
     return (
-        <div className="colorRow">
+        <div className={classes.colorRow}>
             {colors.map((color, index) => (
                 <ColorBlock
                     color={color}

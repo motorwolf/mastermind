@@ -22,10 +22,10 @@ export const StyledApp = ({ children }: any) => {
     const classes = AppStyles({ theme });
     return (
         <div className={classes.backdrop}>
-            <header>
-                <h1 className={classes.heading}>Mastermind.</h1>
+            <header className={classes.header}>
+                <h1 className={classes.heading}>Mastermind</h1>
             </header>
-            <main>{children}</main>
+            <main className={classes.main}>{children}</main>
         </div>
     );
 };
