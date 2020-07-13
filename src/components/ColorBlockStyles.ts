@@ -20,6 +20,12 @@ export const colorBackgrounds = {
     purple: {
         backgroundColor: theme.colors.purple,
     },
+    black: {
+        backgroundColor: theme.colors.black,
+    },
+    white: {
+        backgroundColor: theme.colors.grey,
+    },
 };
 
 export const ColorBlockStyles = createUseStyles((theme: any) => ({
@@ -27,5 +33,16 @@ export const ColorBlockStyles = createUseStyles((theme: any) => ({
         height: '100px',
         width: '100px',
     },
+    resultBlockContainer: {
+        height: '100px',
+        flexDirection: 'column',
+        flexWrap: 'wrap',
+        display: 'flex',
+    },
+    resultBlock: {
+        borderRadius: '50%',
+        width: '50px',
+        height: '50px',
+    }, 
     ...colorBackgrounds,
 }));
