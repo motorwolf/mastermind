@@ -26,6 +26,8 @@ export const StyledApp = ({ children }: any) => {
                 <h1 className={classes.heading}>Mastermind</h1>
             </header>
             <main className={classes.main}>{children}</main>
+            <footer className={classes.footer}>
+            </footer>
         </div>
     );
 };

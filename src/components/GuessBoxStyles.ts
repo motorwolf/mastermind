@@ -2,12 +2,13 @@ import { createUseStyles } from 'react-jss';
 
 export const GuessBoxStyles = createUseStyles((theme: any) => ({
     guessBoxContainer: {
-        height: '160px',
+        flexShrink: 0,
+        flexBasis: '10vh',
     },
     currentGuess: {
-        height: '120px',
+        height: '10vh',
     },
     buttonHolder: {
-        height: '40px',
+        height: '10vh',
     },
 }));

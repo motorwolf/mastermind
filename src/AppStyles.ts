@@ -10,18 +10,30 @@ export const AppStyles = createUseStyles((theme: any) => ({
         margin: 0,
         padding: 0,
         boxSizing: 'border-box',
+        display: 'grid',
+        gridTemplateAreas: `
+            "header header header"
+            "main main main"
+            "footer footer footer"
+        `,
+        gridTemplateRows: `1fr 5fr 1fr`,
     },
     heading: {
         fontSize: '10vh',
         margin: 0,
-        overflow: 'hidden',
-        padding: `0 0 2rem`,
     },
     header: {
-        maxHeight: '15vh',
+        gridArea: 'header',
+        textAlign: 'center',
     },
     main: {
         display: 'flex',
+        gridArea: 'main',
         flexDirection: 'column',
+        backgroundColor: theme.colors.white,
+        alignItems: 'center',
+    },
+    footer: {
+        gridArea: 'footer',
     },
 }));
