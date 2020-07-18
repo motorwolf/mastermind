@@ -7,6 +7,7 @@ export const AppStyles = createUseStyles((theme: any) => ({
         fontFamily: theme.font,
         height: '100vh',
         width: '100vw',
+        maxWidth: '100vw',
         margin: 0,
         padding: 0,
         boxSizing: 'border-box',
@@ -19,7 +20,7 @@ export const AppStyles = createUseStyles((theme: any) => ({
         gridTemplateRows: `1fr 5fr 1fr`,
     },
     heading: {
-        fontSize: '10vh',
+        fontSize: `min(15vw, 7rem)`,
         margin: 0,
     },
     header: {

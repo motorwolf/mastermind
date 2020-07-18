@@ -14,7 +14,7 @@ export const PreviousGuesses = ({ guesses }: PreviousGuessesPropTypes) => {
     return (
         <div className={classes.previousGuessContainer}>
             {guesses.map(({ guess, black, white }) => (
-                <div className="guessRows">
+                <div className={classes.guessRows}>
                     <ColorRow colors={guess} />
                     <ResultDisplay black={black} white={white} />
                 </div>

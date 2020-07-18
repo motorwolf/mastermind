@@ -6,4 +6,10 @@ export const PreviousGuessesStyles = createUseStyles((theme: any) => ({
         maxHeight: '500px',
         flexGrow: 1,
     },
+    guessRows: {
+        display: 'flex',
+        flexDirection: 'row',
+        width: '100%',
+        maxWidth: '100vw',
+    },
 }));
