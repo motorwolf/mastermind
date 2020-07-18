@@ -6,5 +6,6 @@ export const ColorRowStyles = createUseStyles((theme: any) => ({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'nowrap',
+        width: '75%',
     },
 }));

@@ -31,6 +31,7 @@ export const colorBackgrounds = {
 export const ColorBlockStyles = createUseStyles((theme: any) => ({
     colorBlock: {
         flex: 1,
+        width: '100px',
     },
     resultBlockContainer: {
         height: '100px',
@@ -40,8 +41,8 @@ export const ColorBlockStyles = createUseStyles((theme: any) => ({
     },
     resultBlock: {
         borderRadius: '50%',
-        width: '25px',
-        height: '25px',
+        width: '50px',
+        height: '50px',
     }, 
     ...colorBackgrounds,
 }));
