@@ -16,7 +16,7 @@ export const StyledGuessBox = ({ top, bottom }: any) => {
     const classes = GuessBoxStyles({ theme });
     return (
         <div className={classes.guessBoxContainer}>
-            <div className={classes.currentGuess}>CURRENT GUESS: {top}</div>
+            <div className={classes.currentGuess}>{top}</div>
             <div className={classes.buttonHolder}>{bottom}</div>
         </div>
     );
