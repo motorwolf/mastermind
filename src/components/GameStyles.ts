@@ -9,6 +9,6 @@ export const GameStyles = createUseStyles((theme: any) => ({
         alignItems: 'stretch',
         height: '100%',
         maxHeight: '70vh',
-        maxWidth: '600px',
+        maxWidth: '100vw',
     },
 }));

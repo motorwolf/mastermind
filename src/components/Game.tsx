@@ -10,7 +10,8 @@ export type ColorTypes =
     | 'yellow'
     | 'green'
     | 'blue'
-    | 'purple';
+    | 'purple'
+    | 'white';
 
 export type CheckedType = ColorTypes | null;
 

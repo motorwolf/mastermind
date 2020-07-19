@@ -43,12 +43,17 @@ export class GuessBox extends Component<GuessboxPropTypes> {
         this.setState({ colors: newColors });
     };
 
+    getColorsWithFiller = () => {
+        let blankColors: ColorTypes[] = [...Array(this.props.guessLimit - this.state.colors.length)].map(a => 'white')
+        return [...this.state.colors, ...blankColors]
+    }
+
     render() {
         return (
             <StyledGuessBox
                 top={
                     <ColorRow
-                        colors={this.state.colors}
+                        colors={this.getColorsWithFiller()}
                         colorClickFn={this.removeColor}
                     />
                 }

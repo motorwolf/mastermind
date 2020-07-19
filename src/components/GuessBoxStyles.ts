@@ -9,7 +9,7 @@ export const GuessBoxStyles = createUseStyles((theme: any) => ({
         height: '10vh',
         display: 'flex',
         flexDirection: 'row',
-        backgroundColor: 'grey',
+        backgroundColor: theme.colors.white,
     },
     buttonHolder: {
         height: '10vh',
